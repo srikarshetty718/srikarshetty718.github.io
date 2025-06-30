@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srikar Sambu - Full Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Exo+2:wght@300;400;700&family=Rajdhani:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for Glassmorphism, Neon, and Background Animation */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.05); /* Very subtle background for glass */
+            --glass-border: rgba(255, 255, 255, 0.1); /* Subtle border for glass */
+            --glass-shadow: rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+            --neon-blue: #00f0ff; /* Bright blue neon */
+            --neon-purple: #a020f0; /* Bright purple neon */
+            --text-color: #e0e0e0; /* Light gray text */
+            --primary-font: 'Orbitron', sans-serif;
+            --secondary-font: 'Exo 2', sans-serif;
+            --body-font: 'Rajdhani', sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background: linear-gradient(135deg, #1a0a2a, #0a0a1a, #2a0a3a); /* Deep gradient background */
+            background-size: 400% 400%; /* Larger background for animation */
+            animation: gradientAnimation 15s ease infinite; /* Smooth gradient animation */
+            min-height: 100vh; /* Ensure full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Gradient Background Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 8px 32px 0 var(--glass-shadow);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden; /* Ensure glow stays within bounds */
+        }
+
+        /* Neon Border Glow Effect on Hover */
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-purple), 0 8px 40px 0 var(--glass-shadow);
+            border-color: var(--neon-blue); /* Highlight border on hover */
+        }
+
+        /* Inner Glow for Text/Elements within Glass Cards */
+        .neon-text-glow {
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-purple);
+        }
+
+        /* Neon Button Style */
+        .neon-button {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* Pill shape */
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+            transition: all 0.3s ease-in-out;
+            display: inline-block; /* Allows padding and width */
+        }
+
+        .neon-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-purple), 0 0 60px var(--neon-blue);
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+        }
+
+        /* Section Headings */
+        .section-heading {
+            font-family: var(--primary-font);
+            font-size: 2.5rem; /* Larger for desktop */
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 8px var(--neon-blue), 0 0 15px var(--neon-purple);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            border-radius: 5px;
+        }
+
+        /* Responsive adjustments for headings */
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Project Card Specifics */
+        .project-card h3 {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .project-card a {
+            color: var(--neon-purple);
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .project-card a:hover {
+            color: var(--neon-blue);
+            text-decoration: underline;
+        }
+
+        /* Blog Card Specifics */
+        .blog-card h3 {
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        /* Hero Section Specifics */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh; /* Make hero section tall */
+            position: relative;
+            overflow: hidden; /* Hide overflow from background effects */
+            padding: 2rem; /* Add padding for smaller screens */
+        }
+
+        .hero-section h1 {
+            font-family: var(--primary-font);
+            font-size: 4.5rem; /* Large name */
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-purple);
+            line-height: 1;
+        }
+
+        .hero-section h2 {
+            font-family: var(--secondary-font);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-top: 0.5rem;
+        }
+
+        .hero-section p {
+            font-family: var(--body-font);
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 1.5rem;
+            max-width: 700px;
+        }
+
+        /* Responsive adjustments for hero section */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+            .hero-section h2 {
+                font-size: 1.8rem;
+            }
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section h2 {
+                font-size: 1.5rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* General container padding */
+        .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <h1 class="animate-pulse">Srikar Sambu</h1>
+        <h2>Full Stack Developer</h2>
+        <p>I build futuristic, smart, and responsive web experiences.</p>
+    </section>
+
+    <main class="container mx-auto px-4 py-16 space-y-24">
+        <!-- About Me Section -->
+        <section id="about" class="glass-card p-8 md:p-12">
+            <h2 class="section-heading">About Me</h2>
+            <p class="text-lg leading-relaxed mb-4">
+                I'm a passionate B.Tech CSE student at DRK College, Hyderabad, constantly seeking to expand my knowledge in modern web technologies.
+            </p>
+            <p class="text-lg leading-relaxed mb-4">
+                Currently, I'm honing my skills in React, learning from Naresh IT, and diving deep into the world of front-end and back-end development to create seamless user experiences.
+            </p>
+            <p class="text-lg leading-relaxed">
+                My curiosity extends to the exciting realm of AI tools, where I explore how they can enhance development workflows and create smarter applications.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="glass-card p-8 md:p-12">
+            <h2 class="section-heading">Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <div class="p-4 rounded-xl border border-gray-700 hover:border-neon-blue transition-all duration-300">
+                    <h3 class="text-xl font-bold text-neon-blue mb-2">Web Technologies</h3>
+                    <p>HTML, CSS, React, Git</p>
+                </div>
+                <div class="p-4 rounded-xl border border-gray-700 hover:border-neon-blue transition-all duration-300">
+                    <h3 class="text-xl font-bold text-neon-blue mb-2">AI & Tools</h3>
+                    <p>Prompt Engineering, ChatGPT for content & resume optimization</p>
+                </div>
+                <div class="p-4 rounded-xl border border-gray-700 hover:border-neon-blue transition-all duration-300">
+                    <h3 class="text-xl font-bold text-neon-blue mb-2">Development Environment</h3>
+                    <p>VS Code, GitHub</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="glass-card p-8 md:p-12">
+            <h2 class="section-heading">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">Personalized Product Recommendation Model</h3>
+                    <p class="text-gray-300 mb-4">Built a recommendation engine using a retrieval strategy for e-commerce, enhancing user experience and sales.</p>
+                    <p class="text-sm text-gray-400 mb-2"><strong>Tools:</strong> Python, Machine Learning</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Role:</strong> Final year project</p>
+                    <a href="#" class="text-neon-purple hover:text-neon-blue font-bold">GitHub Link (Coming Soon)</a>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">AI-Powered Portfolio Generator</h3>
+                    <p class="text-gray-300 mb-4">Developed an application that dynamically generates personalized portfolio layouts based on user input and career goals.</p>
+                    <p class="text-sm text-gray-400 mb-2"><strong>Tools:</strong> React, Node.js, AI APIs</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Role:</strong> Personal Side Project</p>
+                    <a href="#" class="text-neon-purple hover:text-neon-blue font-bold">GitHub Link (Coming Soon)</a>
+                </div>
+                <!-- Project 3 (Placeholder) -->
+                <div class="project-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">Smart Resume Optimizer</h3>
+                    <p class="text-gray-300 mb-4">A web-based tool that analyzes resumes and provides suggestions for optimization using natural language processing.</p>
+                    <p class="text-sm text-gray-400 mb-2"><strong>Tools:</strong> Python, Flask, NLP</p>
+                    <p class="text-sm text-gray-400 mb-4"><strong>Role:</strong> Learning Project</p>
+                    <a href="#" class="text-neon-purple hover:text-neon-blue font-bold">GitHub Link (Coming Soon)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="glass-card p-8 md:p-12">
+            <h2 class="section-heading">Certifications</h2>
+            <ul class="list-disc list-inside space-y-3 text-lg">
+                <li class="neon-text-glow">Prompt Engineering – OpenAI</li>
+                <li class="neon-text-glow">DeepLearning.AI Certification</li>
+                <li class="neon-text-glow">(Placeholder) Advanced React Development - Udemy</li>
+            </ul>
+        </section>
+
+        <!-- Blog Section (Placeholder Cards) -->
+        <section id="blog" class="glass-card p-8 md:p-12">
+            <h2 class="section-heading">Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <div class="blog-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">The Future of Web Development</h3>
+                    <p class="text-gray-300">Coming soon...</p>
+                </div>
+                <!-- Blog Card 2 -->
+                <div class="blog-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">Demystifying AI for Developers</h3>
+                    <p class="text-gray-300">Coming soon...</p>
+                </div>
+                <!-- Blog Card 3 -->
+                <div class="blog-card p-6 glass-card">
+                    <h3 class="text-2xl mb-3">Mastering Responsive Design</h3>
+                    <p class="text-gray-300">Coming soon...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="glass-card p-8 md:p-12 text-center">
+            <h2 class="section-heading">Resume</h2>
+            <p class="text-lg mb-8">Download my resume to learn more about my experience and skills.</p>
+            <a href="#" class="neon-button">Download Resume</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="glass-card p-8 md:p-12 text-center">
+            <h2 class="section-heading">Contact</h2>
+            <p class="text-lg mb-4">Feel free to reach out to me via email or connect on social media.</p>
+            <div class="flex flex-col items-center space-y-4 text-xl">
+                <p>📧 Email: <a href="mailto:srikarshetty718@gmail.com" class="text-neon-purple hover:text-neon-blue transition-colors duration-200">srikarshetty718@gmail.com</a></p>
+                <p>🔗 LinkedIn: <a href="#" class="text-neon-purple hover:text-neon-blue transition-colors duration-200">linkedin.com/in/srikarsambu</a></p>
+                <p>🐙 GitHub: <a href="#" class="text-neon-purple hover:text-neon-blue transition-colors duration-200">github.com/srikarsambu </a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Srikar Sambu. All rights reserved.</p>
+        <p>Made with ❤️ by Srikar Sambu</p>
+    </footer>
+</body>
+</html>
