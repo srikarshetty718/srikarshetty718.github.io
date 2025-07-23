@@ -7,7 +7,7 @@ It showcases my skills, projects, certifications, and includes a downloadable re
 
 ## 🚀 Live Demo
 
-🌐 **Visit:** [https://srikarshetty718.github.io](https://srikarshetty718.github.io)
+🌐 **Visit:** http://127.0.0.1:5500/public/portfolio.html
 
 ---
 
