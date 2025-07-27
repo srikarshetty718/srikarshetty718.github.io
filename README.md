@@ -7,7 +7,7 @@ It showcases my skills, projects, certifications, and includes a downloadable re
 
 ## 🚀 Live Demo
 
-🌐 **Visit:** http://127.0.0.1:5500/public/portfolio.html
+🌐 **Visit:**http://127.0.0.1:5500/public/portfolio.html
 
 ---
 
@@ -39,15 +39,15 @@ This website reflects my learning, creativity, and real-world projects.
 
 ## 📄 Resume
 
-📥 [Download My Resume (PDF)](Srikar-Sambu-FlowCV-Resume.pdf)
+📥 [Download My Resume (PDF)](Srikar-Sambu-FlowCV-Resume.pd)
 
 ---
 
 ## 📬 Contact Me
 
-- 📧 **Email:** [srikarshetty718@gmail.com](mailto:srikarshetty61@gmail.com)  
-- 🔗 **LinkedIn:** [linkedin.com/in/srikarsambu](https://www.linkedin.com/in/srikarsambu)  
-- 🐙 **GitHub:** [github.com/srikarsambu](https://github.com/srikarsambu)
+- 📧 **Email:** [srikarshetty61@gmail.com](mailto:srikarshetty61@gmail.com)  
+- 🔗 **LinkedIn:** [linkedin.com/in/srikarsambu](https://www.linkedin.com/in/sambu-srikar-4869aa22b/)  
+- 🐙 **GitHub:** [github.com/srikarsambu](https://github.com/srikarshetty718)
 
 ---
 
